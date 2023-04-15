@@ -28,7 +28,7 @@ namespace EntityApp.Controllers
             {
                 var entity = JsonConvert.DeserializeObject<Entity>(request);
 
-                if (_entityService.Get(entity.Id) != null)
+                if (await _entityService.Get(entity.Id) != null)
                 {
                     return BadRequest($"Объект с идентификатором {entity.Id} уже добавлен");
                 }
